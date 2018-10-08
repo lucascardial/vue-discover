@@ -3,12 +3,14 @@ import modules from './src/map/ModulesMap'
 import components from './src/map/ComponentsMap'
 import state from './src/factory/StoreFactory'
 import router from './src/factory/RouterFactory'
+import nav from './src/factory/NavigationStructFactory'
+
 export default {
   components,
   install (Vue, options) {
-    const routerNode = (options && options.routerNode) ? options.routerNode : false
+    const navGroups = (options && options.navGroups) ? options.navGroups : []
     state()
-    router(features, modules, routerNode)
-    Vue.prototype.$f = 'kkkkk mds men'
+    router(features, modules)
+    Vue.prototype.$_nav = nav(features, navGroups)
   }
 }
