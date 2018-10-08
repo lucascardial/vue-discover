@@ -17,10 +17,17 @@ export default (features, groups) => {
   
     return appNav.reduce((result, nav) => {
       if (nav.group) {
-        let group = groups.find(x => x.label === nav.group)
+        let group = groups.find(x => x.name === nav.group)
         if (group !== undefined && group !== null) {
-          group['children'] = nav
-          result.push(group)
+          let _group = result.find(x => x.label === group.label)
+          if (_group) {
+            _group['children'].push(nav)
+            console.log('nav', result)
+          } else {
+            group['children'] = [nav]
+            result.push(group)
+  
+          }
         } else {
           console.warn('[Vue Discover] Navigation Factory: the group', nav.group,
             'in nav', nav.label, ', dont exist')
