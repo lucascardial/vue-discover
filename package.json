@@ -1,0 +1,32 @@
+{
+  "name": "vue-discover",
+  "version": "1.0.0",
+  "description": "Vue Discover is a vue plugin to auto discover vue components, register routes and vuex modules based in a pre defined structure folder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucca-cardial/vue-discover.git"
+  },
+  "keywords": [
+    "vuejs",
+    "vuejs auto discover",
+    "vue auto modules discover",
+    "vue auto routes discover",
+    "path",
+    "auto",
+    "vuex"
+  ],
+  "author": "Lucas Cardial <luccascardial@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucca-cardial/vue-discover/issues"
+  },
+  "homepage": "https://github.com/lucca-cardial/vue-discover#readme",
+  "dependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "lodash.upperfirst": "^4.3.1"
+  }
+}
