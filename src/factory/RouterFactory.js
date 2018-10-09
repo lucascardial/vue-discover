@@ -43,7 +43,7 @@ const mount = (feature, modules) => {
   }
   return router
 }
-export default (features, modules) => {
+export default (features, modules, options = []) => {
   let _routes = features.reduce((routes, feature) => {
     const route = mount(feature, modules)
     if (feature.modules !== undefined) {
@@ -56,4 +56,13 @@ export default (features, modules) => {
     return routes
   }, [])
   router.addRoutes(_routes)
+  if(options && options.pushToRoute){
+    let routeData = router.options.routes.find(r => r.name === pushToRoute)
+    if(routeData){
+      routeData.children = _routes
+      router.addRoutes([routeData])
+    }
+  } else {
+  router.addRoutes(_routes)
+  }
 }
