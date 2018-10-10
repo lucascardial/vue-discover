@@ -111,7 +111,7 @@ export default {
 ```
 
 > Nota [Estado Centralizado]:
-Perceba que em ambos componentes importam funcionalidades do vuex (`mapActions, mapGetters`), e chamam funcções pelo namespace `Feature1` em `...mapActions('Feature1', ['addTodo']),` e `...mapGetters('Feature1', ['todoList'])`. O Vue Discover fabrica os states e os nomeia pelo namespace de sua Feature. Desta forma, o componente não tem a responsabilidade de gerenciar ou manipular as informações do estado, ele apenas dispara o stado os eventos que deseja.
+Perceba que em ambos componentes importam funcionalidades do vuex (`mapActions, mapGetters`), e chamam funções pelo namespace `Feature1` em `...mapActions('Feature1', ['addTodo']),` e `...mapGetters('Feature1', ['todoList'])`. O Vue Discover fabrica e injeta os `states` de cada feature diretamente na instância do `Vuex`, nomeando-os pelo namespace de sua Feature. Basicamente, para cada Feature existente, o Vue Discover fabrica os módulos do Vuex assiando a propriedade `namespaced` como `true`. Você não precisa saber como o Vue Discover manipula este dados, mas caso queira saber a respeito, leia a [Documentação](https://vuex.vuejs.org/guide/modules.html) do Vuex para estados modulares.
 
 > Nota [Rotas]: O botão `<router-link :to="{name: 'app.modules.todolist.form'}">Novo</router-link>` passa no parâmetro `to` o `name` da rota que desejamos navegar. O `name` de cada rota, como dito anteriormente, refere-se à propriedade `signature` de cada `módulo`. O próximo tópico exemplificará melhor as gerações de `routes e states`. 
 ##### Criando uma Feature
