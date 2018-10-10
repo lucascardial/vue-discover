@@ -225,6 +225,7 @@ export default {
 |modules| Recebe um objeto de modules descrito abaixo|
 ###### Objeto modules
 O objeto modules contém um array de module:
+
 |Nome|Descrição|
 |----|---------|
 |name|Pode Rreferer-se à propriedade `signature` criada no `vue component` no diretório `\Modules`, porém você é livre para escoher o melhor `name` que preferir. Caso escolha o nome do module, fique atento ao erro de _rotas com nome duplicados_. Pode ser usado na navegação de rotas no parâmetro `:to={name:'nome.seu.modulo'}`|
@@ -232,6 +233,7 @@ O objeto modules contém um array de module:
 |router.component|Recebe um vue component qualquer. Você é livre para importar o seu componente e associá-lo aqui, embora o sugerimos que siga o padrão de criação de módulos descrito anteriormente. Dessa forma, o valor deste atributo poderá ser a `signature` do módulo criado. **BÔNUS**: Caso o atributo `name` do objeto module seja o valor da `signature` do module, e você queira o mesmo valor para este atributo, poderá atribuí-lo o valor `'$name'`.
 ###### Objeto router
 Objeto para criação das rotas na fábrica de rotas do Vue Discover, ele pode receber absolutamente todos os parâmetros do padrão de rotas do [Vue Router](https://router.vuejs.org/)
+
 |Nome|Descrição|
 |----|---------|
 |router.path|rota da feature|
