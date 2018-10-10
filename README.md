@@ -227,7 +227,7 @@ export default {
 O objeto modules contém um array de module:
 |Nome|Descrição|
 |----|---------|
-|name| Pode Rreferer-se à propriedade `signature` criada no `vue component` no diretório `\Modules`, porém você é livre para escoher o melhor `name` que preferir. Caso escolha o nome do module, fique atento ao erro de _rotas com nome duplicados_. Pode ser usado na navegação de rotas no parâmetro `:to={name:'nome.seu.modulo'}` |
+|name|Pode Rreferer-se à propriedade `signature` criada no `vue component` no diretório `\Modules`, porém você é livre para escoher o melhor `name` que preferir. Caso escolha o nome do module, fique atento ao erro de _rotas com nome duplicados_. Pode ser usado na navegação de rotas no parâmetro `:to={name:'nome.seu.modulo'}`|
 |router.path| rota do módulo, lembrando que as rotas de módulos serão filhas da feature, logo para o `component.router.path = '/my-component'`, será acessível pela rota: `my-feature-name/my-component`
 |router.component|Recebe um vue component qualquer. Você é livre para importar o seu componente e associá-lo aqui, embora o sugerimos que siga o padrão de criação de módulos descrito anteriormente. Dessa forma, o valor deste atributo poderá ser a `signature` do módulo criado. **BÔNUS**: Caso o atributo `name` do objeto module seja o valor da `signature` do module, e você queira o mesmo valor para este atributo, poderá atribuí-lo o valor `'$name'`.
 ###### Objeto router
@@ -235,6 +235,6 @@ Objeto para criação das rotas na fábrica de rotas do Vue Discover, ele pode r
 |Nome|Descrição|
 |----|---------|
 |router.path|rota da feature|
-|router.component|Recebe um component vue, caso este atributo seja omitido, a Fábrica do Vue Discover injetará um componente anêmico, apenas para prover um slot do `<router-view>` para renderização de rotas filhas da Feature.
+|router.component|Recebe um component vue, caso este atributo seja omitido, a Fábrica do Vue Discover injetará um componente anêmico, apenas para prover um slot do `<router-view>` para renderização de rotas filhas da Feature.|
 
 Vue discover fabrica e injeta na instância do Vue as rotas e os estados (`vuex`) mapeados no diretório `Feature`.
