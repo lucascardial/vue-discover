@@ -29,6 +29,19 @@ Vue discover exige a seguinte estrutura de Diretórios:
 └── store
     └── index.js
 ```
+#### Components
+Vue discover mapeia todos os arquivos vue exitentes no diretório `\components`, e os registra globalmente. Permitindo chamá-los baseado em seu atributo `name`:
+```
+<template>
+    <button>MY BUTTON</button>
+</template>
+<script>
+    export default{
+        name: 'my-buton'
+    }
+</script>
+```
+Assim você poderá chamar `<my-button>` em qualquer outro componente vue.
 #### Modules
 Os módulos são os arquivos base da aplicação. Eles são simplesmente arquivos vue, ou seja `components` que serão renderizados em determinada rota.
 Um `componente módulo` deve obrigatóriamente possuir o atributo `signature` de valor único, pois **signature** servirá como identificador do módulo.
