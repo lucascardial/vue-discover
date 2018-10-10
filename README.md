@@ -30,7 +30,8 @@ Vue discover exige a seguinte estrutura de Diretórios:
     └── index.js
 ```
 #### Components
-Vue discover mapeia todos os arquivos vue exitentes no diretório `\components`, e os registra globalmente. Permitindo chamá-los baseado em seu atributo `name`:
+Vue discover mapeia todos os arquivos vue exitentes no diretório `\components`, e os registra globalmente. Permitindo chamá-los baseado em seu atributo `name`
+###### src\components\mybutton.vue
 ```
 <template>
     <button>MY BUTTON</button>
