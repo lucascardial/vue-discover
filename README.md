@@ -1,5 +1,5 @@
 # Vue Discover
-###### [PT-BR] Versão Beta
+###### [PT-BR] Versão Beta (1.0.3)
 **Vue Discover** é um plugin para [VueJS](https://vuejs.org/) que propõem agilizar o desenvolvimento de completas aplicações com Vue.
 
 Vue Discover descobre/mapeia através de uma estrutura pré definida de diretórios `\Features` e `\Modules`, recursos fundamentais da aplicação: `routes`, `vuex` e `components` (de forma global). Descartando a necessidade de importar componentes próprios em sua aplicação.
