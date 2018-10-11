@@ -68,6 +68,7 @@ Vue discover pode receber alguns parâmetros, como  `navigation.group`  já dito
 |-----|----|----|---|
 |`routes.joinTo`|string|Recebe como valor o nome de uma rota já existente no arquivo `routes\index.js`.|Injeta todas as rotas construídas pelo Vue Discover no atributo `children` da rota nomeada.|
 |`navigation.group`|array| Recebe um array de grupos.|Adiciona grupos que podem relacionar diferentes features., Os únicos parâmetros obrigatórios são: `name` e `label`, embora você possa adicionar quaisquer outros atributos, pois todos estarão visíveis no [prototype](https://br.vuejs.org/v2/cookbook/adding-instance-properties.html) `$nav`|
+
 Exemplo de uso com os parâmetros descritos a cima ( _consideremos a existência de uma rota de `name: 'my.app'` _ 
 
 ```vue
