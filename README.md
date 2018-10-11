@@ -55,7 +55,7 @@ Uma feature reunirá os módulos de acordo com o contexto desejado. Toda feature
 npm i -S vue-discover
 ```
 ### Uso
-```vue
+```es6
 import Vue from 'vue'
 import discover from 'vue-discover'
 Vue.use(discover)
@@ -71,7 +71,7 @@ Vue discover pode receber alguns parâmetros, como  `navigation.group`  já dito
 
 Exemplo de uso com os parâmetros descritos a cima (consideremos a existência de uma rota de `name: 'my.app'`
 
-```vue
+```es6
 Vue.use( discover, {
     routes: { joinTo: 'my.app' },
     navigation: {
@@ -85,7 +85,7 @@ Vue.use( discover, {
 ### Tutorial
 Exemplificaremos com um simples TODO LIST.
 ###### src\main.js
-```vue
+```es6
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -114,7 +114,7 @@ new Vue({
 
 ```
 ###### src\store\index.js
-```vue
+```es6
 import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
@@ -122,7 +122,7 @@ export default new Vuex.Store({})
 
 ```
 ###### src\router\index.js
-```vue
+```es6
 import Vue from 'vue'
 import Router from 'vue-router'
 import layout from '@/views/layouts/base'
