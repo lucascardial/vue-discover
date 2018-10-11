@@ -72,8 +72,7 @@ Vue discover pode receber alguns parâmetros, como  `navigation.group`  já dito
 Exemplo de uso com os parâmetros descritos a cima (consideremos a existência de uma rota de `name: 'my.app'`
 
 ```vue
-Vue.use(
-  discover, {
+Vue.use( discover, {
     routes: { joinTo: 'my.app' },
     navigation: {
       groups: [
@@ -85,6 +84,108 @@ Vue.use(
 
 ### Tutorial
 Exemplificaremos com um simples TODO LIST.
+###### src\main.js
+```vue
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import store from './store'
+import discover from '.vue-discover'
+
+Vue.use(
+  discover, {
+    routes: { joinTo: 'my.app' },
+    navigation: {
+      groups: [
+        { label: 'Group 01', name: 'group1', icon: 'icon' }
+      ]
+    }
+  })
+
+Vue.config.productionTip = false
+/* eslint-disable */
+new Vue({
+  el: '#app',
+  router,
+  store,
+  components: { App },
+  template: '<App/>'
+})
+
+```
+###### src\store\index.js
+```vue
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+export default new Vuex.Store({})
+
+```
+###### src\router\index.js
+```vue
+import Vue from 'vue'
+import Router from 'vue-router'
+import layout from '@/views/layouts/base'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/app',
+      name: 'my.app',
+      component: layout
+    }
+  ]
+})
+```
+###### src\views\layouts\base.vue
+```vue
+<template>
+  <div>
+    <my-nav></my-nav>
+    <h3>Layout base</h3>
+    <router-view></router-view>
+  </div>
+</template>
+<script>
+export default {
+  name: 'baselayout',
+  created () {
+    console.log(this.$_nav)
+  }
+}
+</script>
+```
+###### src\components\my-nav.vue
+```vue
+<template>
+    <nav>
+      <ul v-for="(nav, i) of $_nav" :key="i">
+        <li> {{nav.label}}</li>
+        <ul v-for="(feature, j) of nav.children" :key="j">
+          <li>
+            <router-link :to="{name:feature.to}">{{feature.label}}</router-link>
+          </li>
+          <ul v-for="(module, k) of feature.children" :key="k">
+            <li>
+              <router-link :to="{name:module.to}">
+                {{module.label}}
+              </router-link>
+            </li>
+          </ul>
+        </ul>
+      </ul>
+    </nav>
+</template>
+
+<script>
+export default {
+  name: 'my-nav'
+}
+</script>
+```
+> Note que o v-for recebe o atributo `$_nav` para interação. Como já dito, `$_nav` é provido globalmente.
 ##### Criando os módulos
 ###### src\Modules\TodoListShow.vue
 ```vue
@@ -268,3 +369,7 @@ Objeto para criação das rotas na fábrica de rotas do Vue Discover, ele pode r
 |router.component|Recebe um component vue, caso este atributo seja omitido, a Fábrica do Vue Discover injetará um componente anêmico, apenas para prover um slot do `<router-view>` para renderização de rotas filhas da Feature.|
 
 Vue discover fabrica e injeta na instância do Vue as rotas e os estados (`vuex`) mapeados do diretório `Feature`.
+#### Acessando os módulos
+![Alt Text](https://github.com/lucca-cardial/common-logos/raw/master/gif-1.gif)
+#### Registrando TODOs
+![Alt Text](https://github.com/lucca-cardial/common-logos/raw/master/gif-1.gif)
