@@ -1,5 +1,5 @@
 # Vue Discover
-###### [PT-BR]
+###### [PT-BR] Versão Beta
 **Vue Discover** é um plugin para [VueJS](https://vuejs.org/) que propõem agilizar o desenvolvimento de completas aplicações com Vue.
 
 Vue Discover descobre/mapeia através de uma estrutura pré definida de diretórios `\Features` e `\Modules`, recursos fundamentais da aplicação: `routes`, `vuex` e `components` (de forma global). Descartando a necessidade de importar componentes próprios em sua aplicação.
@@ -7,7 +7,7 @@ Vue Discover descobre/mapeia através de uma estrutura pré definida de diretór
 Vue Discover provê um array com a estrutura de menu de até dois níveis, podendo ser extendida para 3 níveis ao usar o `agrupamento de nav`, este array pode ser invocado em qualquer `vue component`, apenas chamando: `this.$_nav`.
 ##### Vue Discover Estrutura de Diretórios
 Vue discover exige a seguinte estrutura de Diretórios:
-```
+```shell
 .src/
 ├── Features
 │   └── Feature1
@@ -32,7 +32,7 @@ Vue discover exige a seguinte estrutura de Diretórios:
 #### Components
 Vue discover mapeia todos os arquivos vue exitentes no diretório `\components`, e os registra globalmente. Permitindo chamá-los baseado em seu atributo `name`
 ###### src\components\mybutton.vue
-```
+```vue
 <template>
     <button>MY BUTTON</button>
 </template>
@@ -47,11 +47,13 @@ Assim você poderá chamar `<my-button>` em qualquer outro componente vue.
 Os módulos são os arquivos base da aplicação. Eles são simplesmente arquivos vue, ou seja `components` que serão renderizados em determinada rota.
 Um `componente módulo` deve obrigatóriamente possuir o atributo `signature` de valor único, pois **signature** servirá como identificador do módulo.
 #### Features
-Uma feature reunirá os módulos de acordo com o contexto desejado. Toda feature pode possuir uma store (`vuex`) representada pelo diretório `\store` com as opções de `actions, mutations, getters e state`, representados como arquivos únicos, acompanhados do pós-fixo 'feature.js'.
+Uma feature reunirá os módulos de acordo com o contexto desejado. Toda feature pode possuir uma store (`vuex`) representada pelo diretório `\store` com as opções de `actions`, `mutations`, `getters` e/ou `state`, representados como arquivos únicos, acompanhados do pós-fixo 'feature.js'.
 ### Instalação
-    npm i -S vue-discover
-### Uso
 ```
+npm i -S vue-discover
+```
+### Uso
+```vue
 import Vue from 'vue'
 import discover from 'vue-discover'
 Vue.use(discover)
@@ -59,7 +61,7 @@ Vue.use(discover)
 Exemplificaremos com um simples TODO LIST.
 ##### Criando os módulos
 ###### src\Modules\TodoListShow.vue
-```
+```vue
 <template>
     <div>
       <h1>Todo List</h1>
@@ -92,7 +94,7 @@ export default {
 ```
 
 ###### src\Features\Modules\TodoListForm.vue
-```
+```vue
 <template>
     <div>
       <h1>Todo List Form</h1>
@@ -134,7 +136,7 @@ Feature1
 
 Configuração da store da Feature
 ###### src\Features\Feature1\store\actions.feature.js
-```
+```es6
 const addTodo = ({commit}, data) => {
   commit('ADD_TODO', data)
 }
@@ -150,7 +152,7 @@ export default {
 
 ```
 ###### src\Features\Feature1\store\mutations.feature.js
-```
+```es6
 const ADD_TODO = (state, data) => {
   state.todoList.push(data)
 }
@@ -165,7 +167,7 @@ export default {
 }
 ```
 ###### src\Features\Feature1\store\getters.feature.js
-```
+```es6
 const todoList = (state) => {
   return state.todoList
 }
@@ -175,14 +177,14 @@ export default {
 }
 ```
 ###### src\Features\Feature1\store\state.feature.js
-```
+```es6
 export default {
     todoList: []
 }
 ```
 Configuração do `index.js`
 ###### src\Features\Feature1\index.js
-```
+```es6
 const modules = [
   {
     name: 'app.modules.todolist.show',
@@ -225,6 +227,7 @@ export default {
 |modules| Recebe um objeto de modules descrito abaixo|
 ###### Objeto modules
 O objeto modules contém um array de module:
+
 |Nome|Descrição|
 |----|---------|
 |name|Pode Rreferer-se à propriedade `signature` criada no `vue component` no diretório `\Modules`, porém você é livre para escoher o melhor `name` que preferir. Caso escolha o nome do module, fique atento ao erro de _rotas com nome duplicados_. Pode ser usado na navegação de rotas no parâmetro `:to={name:'nome.seu.modulo'}`|
@@ -232,6 +235,7 @@ O objeto modules contém um array de module:
 |router.component|Recebe um vue component qualquer. Você é livre para importar o seu componente e associá-lo aqui, embora o sugerimos que siga o padrão de criação de módulos descrito anteriormente. Dessa forma, o valor deste atributo poderá ser a `signature` do módulo criado. **BÔNUS**: Caso o atributo `name` do objeto module seja o valor da `signature` do module, e você queira o mesmo valor para este atributo, poderá atribuí-lo o valor `'$name'`.
 ###### Objeto router
 Objeto para criação das rotas na fábrica de rotas do Vue Discover, ele pode receber absolutamente todos os parâmetros do padrão de rotas do [Vue Router](https://router.vuejs.org/)
+
 |Nome|Descrição|
 |----|---------|
 |router.path|rota da feature|
