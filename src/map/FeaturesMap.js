@@ -1,5 +1,5 @@
-import upperFirst from 'lodash/upperFirst'
-import camelCase from 'lodash/camelCase'
+import upperFirst from 'lodash.upperfirst'
+import camelCase from 'lodash.camelcase'
 const requireComponent = require.context('@/Features/', true, /index\.js$/)
 
 export default requireComponent.keys().reduce((map, file) => {
