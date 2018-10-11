@@ -103,7 +103,7 @@ Exemplificaremos com um simples TODO LIST.
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'login',
+  name: 'todo-list-show',
   signature: 'app.modules.todolist.show',
   computed: {
     ...mapGetters('Feature1', ['todoList'])
@@ -134,7 +134,7 @@ export default {
 <script>
 import { mapActions } from 'vuex'
 export default {
-  name: 'login',
+  name: 'todo-list-form',
   signature: 'app.modules.todolist.form',
   data () {
     return {
@@ -158,7 +158,7 @@ Perceba que em ambos componentes importam funcionalidades do vuex (`mapActions, 
 > Nota [Rotas]: O botão `<router-link :to="{name: 'app.modules.todolist.form'}">Novo</router-link>` passa no parâmetro `to` o `name` da rota que desejamos navegar. O `name` de cada rota, como dito anteriormente, refere-se à propriedade `signature` de cada `módulo`. O próximo tópico exemplificará melhor as gerações de `routes e states`. 
 ##### Criando uma Feature
 Feature1
-
+> "Feature1" é apenas um nome para exemplo, você é livre para nomear suas features.
 
 Configuração da store da Feature
 ###### src\Features\Feature1\store\actions.feature.js
@@ -234,7 +234,7 @@ const modules = [
   }
 ]
 export default {
-  name: 'app.features.auth',
+  name: 'app.features.feature1',
   modules: modules,
   router: {
     path: '/feature1'
@@ -267,4 +267,4 @@ Objeto para criação das rotas na fábrica de rotas do Vue Discover, ele pode r
 |router.path|rota da feature|
 |router.component|Recebe um component vue, caso este atributo seja omitido, a Fábrica do Vue Discover injetará um componente anêmico, apenas para prover um slot do `<router-view>` para renderização de rotas filhas da Feature.|
 
-Vue discover fabrica e injeta na instância do Vue as rotas e os estados (`vuex`) mapeados no diretório `Feature`.
+Vue discover fabrica e injeta na instância do Vue as rotas e os estados (`vuex`) mapeados do diretório `Feature`.
