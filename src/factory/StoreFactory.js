@@ -1,3 +1,4 @@
+/* eslint-disable no-new */
 import upperFirst from 'lodash.upperfirst'
 import camelCase from 'lodash.camelcase'
 import state from '@/store/index.js'

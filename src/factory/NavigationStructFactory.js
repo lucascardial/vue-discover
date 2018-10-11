@@ -1,3 +1,4 @@
+/* eslint-disable no-new */
 export default (features, options) => {
 
   let appNav = features.reduce((nav, feature) => {
