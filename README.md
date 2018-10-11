@@ -372,4 +372,4 @@ Vue discover fabrica e injeta na instância do Vue as rotas e os estados (`vuex`
 #### Acessando os módulos
 ![Alt Text](https://github.com/lucca-cardial/common-logos/raw/master/gif-1.gif)
 #### Registrando TODOs
-![Alt Text](https://github.com/lucca-cardial/common-logos/raw/master/gif-1.gif)
+![Alt Text](https://github.com/lucca-cardial/common-logos/raw/master/gif-2.gif)
