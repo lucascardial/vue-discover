@@ -1,3 +1,4 @@
+/* eslint-disable */
 import features from './src/map/FeaturesMap'
 import modules from './src/map/ModulesMap'
 import components from './src/map/ComponentsMap'
@@ -8,9 +9,8 @@ import nav from './src/factory/NavigationStructFactory'
 export default {
   components,
   install (Vue, options) {
-    const navGroups = (options && options.navGroups) ? options.navGroups : []
     state()
-    router(features, modules)
-    Vue.prototype.$_nav = nav(features, navGroups)
+    router(features, modules, (options && options.routes) || null)
+    Vue.prototype.$_nav = nav(features, (options && options.navigation) || [])
   }
 }
