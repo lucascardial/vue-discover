@@ -1,6 +1,6 @@
 {
   "name": "vue-discover",
-  "version": "1.0.2",
+  "version": "1.0.2.1",
   "description": "Vue Discover is a vue plugin to auto discover vue components, register routes and vuex modules based in a pre defined structure folder.",
   "main": "index.js",
   "scripts": {

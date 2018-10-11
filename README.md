@@ -4,8 +4,8 @@
 
 Vue Discover descobre/mapeia através de uma estrutura pré definida de diretórios `\Features` e `\Modules`, recursos fundamentais da aplicação: `routes`, `vuex` e `components` (de forma global). Descartando a necessidade de importar componentes próprios em sua aplicação.
 
-Vue Discover provê um array com a estrutura de menu de até dois níveis, podendo ser extendida para 3 níveis ao usar o `agrupamento de nav`, este array pode ser invocado em qualquer `vue component`, apenas chamando: `this.$_nav`.
-##### Vue Discover Estrutura de Diretórios
+Vue Discover provê um array com a estrutura de menu de até dois níveis, podendo ser extendida para 3 níveis ao usar o `navigation group`, este array pode ser invocado em qualquer `vue component`, apenas chamando: `this.$_nav`.
+#####  Estrutura de Diretórios
 Vue discover exige a seguinte estrutura de Diretórios:
 ```shell
 .src/
@@ -29,6 +29,8 @@ Vue discover exige a seguinte estrutura de Diretórios:
 └── store
     └── index.js
 ```
+>'Feature1' é apenas um nome fictício, você é livre para nomear suas features.
+
 #### Components
 Vue discover mapeia todos os arquivos vue exitentes no diretório `\components`, e os registra globalmente. Permitindo chamá-los baseado em seu atributo `name`
 ###### src\components\mybutton.vue
@@ -58,6 +60,29 @@ import Vue from 'vue'
 import discover from 'vue-discover'
 Vue.use(discover)
 ```
+
+##### Opções
+Vue discover pode receber alguns parâmetros, como  `navigation.group`  já dito anteriormente, e`routes.joinTo`.
+
+|objeto|type|valor|descrição
+|-----|----|----|
+|`routes.joinTo`|string|Recebe como valor o nome de uma rota já existente no arquivo `routes\index.js`.|Injeta todas as rotas construídas pelo Vue Discover no atributo `children` da rota nomeada.|
+|`navigation.group`|array| Recebe um array de grupos.|Adiciona grupos que podem relacionar diferentes features., Os únicos parâmetros obrigatórios são: `name` e `label`, embora você possa adicionar quaisquer outros atributos, pois todos estarão visíveis no [prototype](https://br.vuejs.org/v2/cookbook/adding-instance-properties.html) `$nav`|
+Exemplo de uso com os parâmetros descritos a cima ( _consideremos a existência de uma rota de `name: 'my.app'` _ 
+
+```vue
+Vue.use(
+  discover, {
+    routes: { joinTo: 'my.app' },
+    navigation: {
+      groups: [
+        { label: 'Group 01', name: 'group1', icon: 'icon' }
+      ]
+    }
+  })
+```
+
+### Tutorial
 Exemplificaremos com um simples TODO LIST.
 ##### Criando os módulos
 ###### src\Modules\TodoListShow.vue
