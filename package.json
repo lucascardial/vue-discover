@@ -27,7 +27,6 @@
   "homepage": "https://github.com/lucca-cardial/vue-discover#readme",
   "dependencies": {
     "lodash.camelcase": "^4.3.0",
-    "lodash.upperfirst": "^4.3.1",
-    "vue": "^2.5.17"
+    "lodash.upperfirst": "^4.3.1"
   }
 }
