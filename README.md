@@ -83,7 +83,7 @@ Vue.use( discover, {
 ```
 
 ### Tutorial
-Exemplificaremos com um simples TODO LIST.
+Exemplificaremos com um simples TODO LIST. Você pode acessar [O Repositório Exemplo](https://github.com/lucca-cardial/vue-discover-example)
 ###### src\main.js
 ```es6
 import Vue from 'vue'
