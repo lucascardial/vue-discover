@@ -6,7 +6,7 @@ export default requireComponent.keys().reduce((map, file) => {
   if (config.default !== undefined) {
     map.push({
       signature: config.default.signature,
-      path: config.default.__file.replace('src/', '')
+      module: config.default
     })
   }
   return map

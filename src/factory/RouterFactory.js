@@ -27,7 +27,7 @@ const mount = (feature, modules) => {
     router.component = (router.component !== '$name') ? router.component : feature.name
     const component = modules.find(x => x.signature === router.component)
     if (component !== undefined) {
-      router.component = require(`@/${component.path}`).default
+      router.component = component.module
     } else {
       console.error(
         '[Vue discover] RouterFactory: Signature of module',
